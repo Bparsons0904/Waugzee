@@ -1,0 +1,9 @@
+{% if newest_list %}
+    <ul>
+      {% for list in newest_list %}
+          <li><a href="{% url 'lists:wishlist' list.id %}">{{ list.name }}</a></li>
+      {% endfor %}
+    </ul>
+{% else %}
+  <p>No list available</p>
+{% endif %}
