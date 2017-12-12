@@ -1,9 +1,9 @@
-{% if newest_list %}
-    <ul>
-      {% for list in newest_list %}
-          <li><a href="{% url 'lists:wishlist' list.id %}">{{ list.name }}</a></li>
-      {% endfor %}
-    </ul>
+<h1>Welcome to Waugzee!</h1>
+{% if user.is_authenticated %}
+  Hello, {{ user.username }}.
+  <a href="{% url 'users:logout' %}">Log out</a>
 {% else %}
-  <p>No list available</p>
+  <a href="{% url 'users:login' %}">Log In</a>
 {% endif %}
+
+<a href="{% url 'lists:wishlist' %}">Your List</a>

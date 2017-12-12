@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # My APPs
     'lists.apps.ListsConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [

@@ -1,7 +1,9 @@
-{{ wishlist }}
-{{ event }}
-<ul>
-  {% for item in items %}
-      <a href="{% url 'lists:item' item.id %}">{{ item.name}}</a>
-  {% endfor %}
-</ul>
+{% if newest_list %}
+    <ul>
+      {% for list in newest_list %}
+          <li><a href="{% url 'lists:itemlist' list.id %}">{{ list.name }}</a></li>
+      {% endfor %}
+    </ul>
+{% else %}
+  <p>No list available</p>
+{% endif %}

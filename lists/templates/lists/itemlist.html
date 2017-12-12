@@ -1,0 +1,7 @@
+{{ wishlist }}
+{{ event }}
+<ul>
+  {% for item in items %}
+      <a href="{% url 'lists:itemdetail' item.id %}">{{ item.name }}</a>
+  {% endfor %}
+</ul>
