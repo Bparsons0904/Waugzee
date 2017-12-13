@@ -2,8 +2,7 @@
 {% if user.is_authenticated %}
   Hello, {{ user.username }}.
   <a href="{% url 'users:logout' %}">Log out</a>
+  <a href="{% url 'lists:wishlist' owner.id %}">Your List</a>
 {% else %}
   <a href="{% url 'users:login' %}">Log In</a>
 {% endif %}
-
-<a href="{% url 'lists:wishlist' %}">Your List</a>

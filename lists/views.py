@@ -1,12 +1,17 @@
 from django.shortcuts import render, get_object_or_404
-
+from django.contrib.auth.models import User
 from .models import WishList, Event, Items
 
-def index(request):
-    return render(request, 'lists/index.html')
 
-def wishlist(request):
-    newest_list = WishList.objects.order_by('-date_added')
+def index(request):
+    owner = request.user
+    context = {'owner': owner}
+    if owner == None:
+        return render(request, 'lists/index.html')
+    return render(request, 'lists/index.html', context)
+
+def wishlist(request, owner_id):
+    newest_list = WishList.objects.filter(owner = owner_id).order_by('-date_added')
     context = {'newest_list': newest_list,}
     return render(request, 'lists/wishlist.html', context)
 
