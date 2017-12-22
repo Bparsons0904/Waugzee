@@ -1,8 +1,10 @@
 <h1>Welcome to Waugzee!</h1>
 {% if user.is_authenticated %}
   Hello, {{ user.username }}.
-  <a href="{% url 'users:logout' %}">Log out</a>
+  <a href="{% url 'account_logout' %}">Log out</a>
+  <a href="{% url 'users:update_user' %}">Update User</a>
   <a href="{% url 'lists:wishlist' owner.id %}">Your List</a>
 {% else %}
-  <a href="{% url 'users:login' %}">Log In</a>
+  <a href="{% url 'account_login' %}">Log In</a>
+  <a href="{% url 'account_signup' %}">Signup</a>
 {% endif %}
